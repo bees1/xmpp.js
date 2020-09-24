@@ -64,7 +64,7 @@ class IQCaller {
     const { name } = element;
     const { xmlns } = element.attrs;
     return this.request(
-      xml("iq", { type, to }, element),
+      xml("iq", { type, to }, '').append(element),
       ...args,
     ).then((stanza) => stanza.getChild(name, xmlns));
   }
